@@ -5,4 +5,4 @@ from ultralytics.yolo.v8.detect.predict import DetectionPredictor
 from pred import Yolopred
 import os
 
-Yolopred.getprediction(img="C:\\Users\\USER\\Desktop\\Silky\\test\\IMG_3682.jpg",InusedModel="YoloModel//silk1.pt")
+x = Yolopred.getprediction(img="C:\\Users\\USER\\Downloads\\FaNP-00-x.jpg",InusedModel="YoloModel//silk1.pt",path = os.getcwd())

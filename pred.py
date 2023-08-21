@@ -1,14 +1,8 @@
 from ultralytics import YOLO
+import os
 
-
-class Yolopred:
-    def __init__(self,img):
-        pass
-        
-    def getprediction(img,InusedModel="YoloModel//silk1.pt"):
+class Yolopred:        
+    def getprediction(img,InusedModel="YoloModel//silk1.pt",path = os.getcwd()):
         model = YOLO(InusedModel)
-        predict = model.predict(source=img , save = True , show = True)
+        predict = model.predict(source=img , save = True , show = True , project = path )
         return predict
-    
-    def __del__(self):
-        pass
