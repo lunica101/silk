@@ -19,23 +19,22 @@ def get_yolo_result(img=None):
         count[result_names[name]] = count.get(result_names[name], 0) + 1
     #print(count)
     
-    #accu = predict[0].boxes.conf
-    #print(accu)
+      #accuracy
+    accu = predict[0].boxes.conf
+    accu = [round(float(x.item()),2) for x in accu]
+    print(accu)
 
       #position
-    posi = predict[0].boxes.xyxy
-    posi = [t.numpy() for t in posi]
+    #posi = predict[0].boxes.xyxy
+    #posi = [t.numpy() for t in posi]
     #print(posi)
-    
-    #class_ids_list =  list(predict[0].boxes.cls)
 
       #savedir
     leen = predict[0].save_dir
-    a ="C:\\Users\\USER\\Desktop\\yoloML\\ultralytics\\test\\IMG_8115.JPG"
-    b = os.path.basename(a)
-    path_direc = os.path.join(leen,b)
+    a = os.path.basename(img)
+    path_direc = os.path.join(leen,a)
     #print(path_direc)
     
-    return count , posi , path_direc
+    return count , accu , path_direc
 
 get_yolo_result("C:\\Users\\USER\\Desktop\\yoloML\\ultralytics\\test\\IMG_8115.JPG") 
